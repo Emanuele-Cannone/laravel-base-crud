@@ -4,5 +4,8 @@
 
 @section('content')
     <h1>io sono la pagina auto</h1>
-    <h2>{{ $saluto }}</h2>
+    @foreach ($vehicles as $item)
+        
+    <h2>{{ $item->id }}</h2>
+    @endforeach
 @endsection

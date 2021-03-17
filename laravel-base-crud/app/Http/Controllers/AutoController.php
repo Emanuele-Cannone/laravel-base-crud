@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 class AutoController extends Controller
 {
     public function indexAuto(){
+        $dati_vehicles = vehicles::all();
         $data=[
-            'saluto' => 'ciao io sono la pagina auto'
+            'Veicoli' => $vehicles
         ];
         return view('auto', $data);
     }
