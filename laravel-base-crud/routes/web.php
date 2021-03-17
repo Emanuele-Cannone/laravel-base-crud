@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\HomeController;
+use App\AutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/','HomeController@index')->name('home');
 
 
-Route::get('/auto', function () {
-    return view('auto');
-})->name('auto');
+Route::get('/auto','AutoController@indexAuto')->name('auto');
