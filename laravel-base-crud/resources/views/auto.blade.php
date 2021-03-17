@@ -4,7 +4,7 @@
 
 @section('content')
     <h1>io sono la pagina auto</h1>
-    @foreach ($vehicles as $item)
+    @foreach ($Veicoli as $item)
         
     <h2>{{ $item->id }}</h2>
     @endforeach

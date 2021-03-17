@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\HomeController;
-use App\AutoController;
+use App\VehicleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +18,4 @@ use App\AutoController;
 Route::get('/','HomeController@index')->name('home');
 
 
-Route::get('/auto','AutoController@indexAuto')->name('auto');
+Route::get('/auto','VehicleController@indexVehicle')->name('auto');
