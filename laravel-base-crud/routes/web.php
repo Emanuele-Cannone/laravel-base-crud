@@ -18,4 +18,4 @@ use App\VehicleController;
 Route::get('/','HomeController@index')->name('home');
 
 
-Route::get('/auto','VehicleController@indexVehicle')->name('auto');
+Route::resource('vehicle', 'VehicleController');
