@@ -1,8 +1,11 @@
 <header>
-    <nav>
-        <ul>
-            <li><a href="{{ route ('home') }}">Home</a></li>
-            <li><a href="{{ route ('vehicles.index') }}">Auto</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="{{ route ('home') }}">Home</a>
+                <a class="nav-link" href="{{ route ('vehicles.index') }}">Auto</a>
+                <a class="nav-link" href="{{ route ('vehicles.create') }}">Aggiungi Auto</a>
+            </div>
+        </div>
     </nav>
 </header>

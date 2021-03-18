@@ -29,7 +29,7 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        //
+        return view('vehicles.create');
     }
 
     /**
@@ -38,9 +38,23 @@ class VehicleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $data = $request->all();
+        //validiamo
+        
+        $VehicleNew = new Vehicle();
+        $VehicleNew -> marca = $data['marca'];
+        $VehicleNew -> modello = $data['modello'];
+        $VehicleNew -> anno = $data['anno'];
+        $VehicleNew -> cilindrata = $data['cilindrata'];
+ 
+
+        $VehicleNew->save();
+
+        $Vehicle = Vehicle::orderBy('id', 'desc')->first();
+
+        return redirect()->route('vehicles.index', $VehicleNew);
+    
     }
 
     /**
@@ -51,6 +65,7 @@ class VehicleController extends Controller
      */
     public function show($id)
     {
+        
         $vehicle_selected = Vehicle::find($id);
         $data = [
             'Veicoli' => $vehicle_selected
