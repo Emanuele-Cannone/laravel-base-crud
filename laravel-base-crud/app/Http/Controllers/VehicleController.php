@@ -18,7 +18,7 @@ class VehicleController extends Controller
         $data = [
             'Veicoli' => $dati_vehicles
         ];
-        return view('auto', $data);
+        return view('vehicles.index', $data);
     
     }
 
@@ -56,7 +56,7 @@ class VehicleController extends Controller
             'Veicoli' => $vehicle_selected
         ];
         
-        return view('show', $data);
+        return view('vehicles.show', $data);
     }
 
     /**

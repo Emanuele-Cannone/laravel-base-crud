@@ -17,5 +17,5 @@ use App\VehicleController;
 
 Route::get('/','HomeController@index')->name('home');
 
+Route::resource('vehicles', 'VehicleController');
 
-Route::resource('vehicle', 'VehicleController');
