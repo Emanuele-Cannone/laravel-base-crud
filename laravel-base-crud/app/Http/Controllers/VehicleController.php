@@ -66,10 +66,10 @@ class VehicleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Vehicle $Vehicle)
     {
         
-        $vehicle_selected = Vehicle::find($id);
+        $vehicle_selected = $Vehicle;
         $data = [
             'Veicoli' => $vehicle_selected
         ];
@@ -85,11 +85,12 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $Vehicle)
     {
-        $vehicle_selected = $Vehicle;
+        
         $data = [
-            'Veicoli' => $vehicle_selected
+            'Veicoli' => $Vehicle
         ];
-        return view('vehicles.edit', $Vehicle);
+        
+        return view('vehicles.edit', $data);
     }
 
     /**
@@ -105,7 +106,7 @@ class VehicleController extends Controller
         $data = $request->all();
         $Vehicle->update($data);
 
-        return redirect()->route('vehicles.show', $Vehicle);
+        return redirect()->route('vehicles.show', $data);
 
     }
 
