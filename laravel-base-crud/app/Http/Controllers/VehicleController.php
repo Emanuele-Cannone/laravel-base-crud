@@ -45,7 +45,7 @@ class VehicleController extends Controller
         $VehicleNew = new Vehicle();
 
         // mi deve ritornare un array con il valore marca
-        
+
         // $VehicleNew -> marca = $data['marca'];
         // $VehicleNew -> modello = $data['modello'];
         // $VehicleNew -> anno = $data['anno'];
@@ -119,8 +119,10 @@ class VehicleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Vehicle $Vehicle)
     {
-        //
+        $Vehicle->delete();
+
+        return redirect()->route('vehicles.index');
     }
 }

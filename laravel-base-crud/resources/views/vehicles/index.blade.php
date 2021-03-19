@@ -23,7 +23,13 @@
             <td>{{ $item->modello }}</td>
             <td><a href="{{ route('vehicles.show', ['vehicle'=>$item->id]) }}">Dettagli</a></td>
             <td><a href="{{ route('vehicles.edit', ['vehicle'=>$item->id]) }}">Modifica</a></td>
-            <td><a href="#">Elimina</a></td>
+            <td>
+                <form action="{{ route('vehicles.destroy', ['vehicle'=>$item->id]) }}" method="post">
+                    @method('delete')
+                    @csrf
+                    <button>Elimina</button>
+                    
+                </form>
             </tr>
             @endforeach
         </tbody>
