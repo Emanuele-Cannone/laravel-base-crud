@@ -45,11 +45,14 @@ class VehicleController extends Controller
         $VehicleNew = new Vehicle();
 
         // mi deve ritornare un array con il valore marca
-        $VehicleNew -> marca = $data['marca'];
         
-        $VehicleNew -> modello = $data['modello'];
-        $VehicleNew -> anno = $data['anno'];
-        $VehicleNew -> cilindrata = $data['cilindrata'];
+        // $VehicleNew -> marca = $data['marca'];
+        // $VehicleNew -> modello = $data['modello'];
+        // $VehicleNew -> anno = $data['anno'];
+        // $VehicleNew -> cilindrata = $data['cilindrata'];
+
+        $VehicleNew->fill($data);
+        
  
 
         $VehicleNew->save();
@@ -89,7 +92,7 @@ class VehicleController extends Controller
         $data = [
             'Veicoli' => $Vehicle
         ];
-        
+
         return view('vehicles.edit', $data);
     }
 
@@ -106,7 +109,7 @@ class VehicleController extends Controller
         $data = $request->all();
         $Vehicle->update($data);
 
-        return redirect()->route('vehicles.show', $data);
+        return redirect()->route('vehicles.index');
 
     }
 
