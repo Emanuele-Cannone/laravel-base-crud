@@ -40,10 +40,13 @@ class VehicleController extends Controller
      */
     public function store(Request $request){
         $data = $request->all();
-        //validiamo
+        
         
         $VehicleNew = new Vehicle();
+
+        // mi deve ritornare un array con il valore marca
         $VehicleNew -> marca = $data['marca'];
+        
         $VehicleNew -> modello = $data['modello'];
         $VehicleNew -> anno = $data['anno'];
         $VehicleNew -> cilindrata = $data['cilindrata'];
@@ -80,9 +83,13 @@ class VehicleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vehicle $Vehicle)
     {
-        //
+        $vehicle_selected = $Vehicle;
+        $data = [
+            'Veicoli' => $vehicle_selected
+        ];
+        return view('vehicles.edit', $Vehicle);
     }
 
     /**
@@ -92,9 +99,14 @@ class VehicleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Vehicle $Vehicle)
     {
-        //
+        
+        $data = $request->all();
+        $Vehicle->update($data);
+
+        return redirect()->route('vehicles.show', $Vehicle);
+
     }
 
     /**
